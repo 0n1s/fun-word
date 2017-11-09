@@ -11,7 +11,7 @@ var app = express();
 var router = express.Router();
 
 
-router.get('fun-word.herokuapp.com', function(req, res) {
+router.get('/', function(req, res) {
   var answer=funnyWords("Confuse your users positively");
   var confused=funnyWords("confused");
      res.render('index',
