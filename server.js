@@ -3,6 +3,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path =require('path');
 var funnyWords = require('funny-words');
+const chuck = require('chuck-norris-jokes');
+
+chuck
+  .hitme()
+  .then(console.log.bind(console));
 
 
 var app = express();
@@ -46,7 +51,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', router);
 
-app.listen('3000', function()
+var port = process.env.port || 3000;
+
+app.listen(port, function()
 {
   console.log('server started on port 3000');
 });
